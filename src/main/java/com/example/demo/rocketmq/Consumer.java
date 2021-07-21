@@ -42,7 +42,7 @@ public class Consumer {
         //集群模式消费失败默认重试16次，延迟等级为3~18。(messageDelayLevel = "1s 5s 10s 30s 1m 2m 3m 4m 5m 6m 7m 8m 9m 10m 20m 30m 1h 2h")
         consumer.setMessageModel(MessageModel.CLUSTERING);
         //最多重试次数
-        consumer.setMaxReconsumeTimes(5);
+        consumer.setMaxReconsumeTimes(6);
 
 
         consumer.registerMessageListener(new MessageListenerConcurrently()
