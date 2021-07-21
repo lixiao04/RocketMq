@@ -43,6 +43,8 @@ public class Consumer {
         consumer.setMessageModel(MessageModel.CLUSTERING);
         //最多重试次数
         consumer.setMaxReconsumeTimes(5);
+
+
         consumer.registerMessageListener(new MessageListenerConcurrently()
         {
             public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs, ConsumeConcurrentlyContext context) {
