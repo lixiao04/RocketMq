@@ -25,9 +25,12 @@ public class Producer {
     private  DefaultMQProducer producer = null;
     @PostConstruct
     public  void Producer() throws MQClientException {
+        //生产者和消费者的nameservAddr 和group 需要保持一致 生产者可根据场景生产不同topic下的不同tag下的不同消息
         producer = new DefaultMQProducer(group);
         producer.setNamesrvAddr(nameservAddr);
+        //默认不需要设置instanceName 如果有集群 则需要设置不同的instanceName 作为区分
         producer.setInstanceName("producer");
+        //重试次数
         producer.setRetryTimesWhenSendFailed(3);
         producer.start();
         log.info("生产者启动成功！");

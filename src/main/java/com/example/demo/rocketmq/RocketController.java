@@ -56,12 +56,12 @@ public class RocketController {
         // 当消息发送失败时如何处理
         if (sendResult == null || sendResult.getSendStatus() != SendStatus.SEND_OK) {
             // TODO
+            log.error("消息发送失败！");
             return "false";
         }else {
+            log.info("消息发送成功！");
             return "true";
         }
-
-//	    return null;
     }
 
 }
